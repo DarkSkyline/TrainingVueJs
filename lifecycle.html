@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Vue.js</title>
+</head>
+<body>
+
+    <div id="lifecycle">
+        <h2>{{ name }}</h2>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#lifecycle',
+            data: {
+                name: 'Filipe Ferreira Training'
+            },
+            beforeCreate(){
+                console.log('beforeCreate');
+            },
+            created(){
+                console.log('created');
+            },
+            beforeMounted(){
+                console.log('beforeMounted');
+            },
+            mounted(){
+                console.log('mounted');
+            }
+           
+             
+        })
+
+    </script>
+
+</body>
+</html>
