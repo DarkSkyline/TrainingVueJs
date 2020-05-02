@@ -8,23 +8,30 @@
 <body>
 
     <div id="filters">
+
+        <h3>{{ name | placeholder('N/A') }}</h3>
+
         <h2>{{ name }}</h2>
 
         <h2>{{ name | upper }}</h2>
 
-        <h2>My salary is: {{ salary | euro }}</h2>
+        <h2>My salary is: {{ salary | euro }} {{ salary | pluralize(['euro', 'euros'])}}</h2>
 
         <input type="text" placeholder="Your salary" v-model="salary"> 
+
+        <h2>{{ msg | truncate(100) }}</h2>
 
     </div>
 
     <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
     <script>
         let app = new Vue({
             el: '#filters',
             data: {
                 name: 'Filipe Ferreira Training',
-                salary: 0
+                salary: 1,
+                msg: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur natus assumenda reprehenderit. Laboriosam delectus voluptatibus, similique dolorum cum culpa sint sunt deserunt corporis nulla magnam, dignissimos, quos iusto itaque tempore.'
             },
             filters: {
                 upper: function(value){
