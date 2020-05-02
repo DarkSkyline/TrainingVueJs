@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Vue.js</title>
+</head>
+<body>
+
+    <div id="filters">
+        <h2>{{ name }}</h2>
+
+        <h2>{{ name | upper }}</h2>
+
+        <h2>My salary is: {{ salary | euro }}</h2>
+
+        <input type="text" placeholder="Your salary" v-model="salary"> 
+
+    </div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#filters',
+            data: {
+                name: 'Filipe Ferreira Training',
+                salary: 0
+            },
+            filters: {
+                upper: function(value){
+                    return value.toUpperCase();
+                },
+                euro: function(value){
+                    return `${parseInt(value).toFixed(2)}€`;
+                }
+            }     
+        })
+
+    </script>
+
+</body>
+</html>
