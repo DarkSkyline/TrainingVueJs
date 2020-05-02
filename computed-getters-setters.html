@@ -9,7 +9,6 @@
 
     <div id="computed">
         <h2>Full name: {{ fullName }} </h2>
-        <h3>Fulle name: {{ getFullName() }} </h3>
 
     </div>
 
@@ -23,14 +22,17 @@
                     lastName: 'Ferreira'
                 }
             },
-            methods: {
-                getFullName: function(){
-                    return `${this.person.firstName} ${this.person.lastName}`
-                }
-            },
             computed: {
-                fullName: function(){
-                    return `${this.person.firstName} ${this.person.lastName}`
+                fullName: {
+                    get: function(){
+                        return `${this.person.firstName} ${this.person.lastName}`
+                    },
+                    set: function(newValue){
+                        let name = newValue.split(' ');
+                        
+                        this.person.firstName = name[0];
+                        this.person.lastName = name[1];
+                    } 
                 }
             }           
         })
