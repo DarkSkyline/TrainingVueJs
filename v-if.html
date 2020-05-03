@@ -11,6 +11,9 @@
 
         <h3 v-if="show">Filipe Ferreira</h3>
 
+        <h3 key="available" v-if="tickets">Bonus disponible</h3>
+        <h3 key="empty" v-else>Bonus indisponible</h3>
+
     </div>
 
     <script src="node_modules/vue/dist/vue.min.js"></script>
@@ -20,6 +23,7 @@
             el: '#filters',
             data: {
                 show: true,
+                tickets: 100
             }
         })
 
