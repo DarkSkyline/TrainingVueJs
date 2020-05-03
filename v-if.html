@@ -11,8 +11,9 @@
 
         <h3 v-if="show">Filipe Ferreira</h3>
 
-        <h3 key="available" v-if="tickets">Bonus disponible</h3>
-        <h3 key="empty" v-else>Bonus indisponible</h3>
+        <h3 key="available" v-if="tickets >= 50">tickets disponible</h3>
+        <h3 v-else-if="tickets >= 1">Almost indisponible tickets</h3>
+        <h3 key="empty" v-else>tickets indisponible</h3>
 
     </div>
 
